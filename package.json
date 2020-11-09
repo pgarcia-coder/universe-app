@@ -1,0 +1,76 @@
+{
+  "name": "universe-app",
+  "version": "1.0.0",
+  "description": "An express aplication to manage universe info",
+  "scripts": {
+    "start": "node src/run-server.js",
+    "test": "nyc --reporter=html --reporter=text mocha test/**/*.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+  },
+  "license": "MIT",
+  "keywords": [
+    "javascript",
+    "express"
+  ],
+  "author": "Pablo García <pagfullana@gmail.com>",
+  "engines": {
+    "node": ">10.0"
+  },
+  "homepage": "https://github.com/pgarcia-coder/universe-app",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/pgarcia-coder/universe-app/LICENSE"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Pablo García",
+      "email": "pagfullana@gmail.com",
+      "url": "https://github.com/pgarcia-coder"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pgarcia-coder/universe-app"
+  },
+  "dependencies": {
+    "ajv": "^6.12.6",
+    "ajv-errors": "^1.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "knex": "^0.21.5",
+    "morgan": "^1.10.0",
+    "pg": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.3",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "husky": "^4.3.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.1.2",
+    "sinon": "^9.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}

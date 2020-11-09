@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "modify-planet.json",
+  "type": "object",
+  "required": ["id", "body"],
+  "properties": {
+    "id": {
+      "$id": "#/properties/id",
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "errorMessage": {
+        "pattern": "id should be an UUID",
+        "type": "id must be a string",
+        "required": "id is required"
+      }
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "object",
+      "required": [
+        "name",
+        "description",
+        "region",
+        "diameter",
+        "mass",
+        "orbital_radius",
+        "orbital_period",
+        "spin_period",
+        "tilt"
+      ],
+      "errorMessage": {
+        "required": {
+          "name": "body.name is required",
+          "description": "body.description is required",
+          "region": "body.region is required",
+          "diameter": "body.diameter is required",
+          "mass": "body.mass is required",
+          "orbital_radius": "body.orbital_radius is required",
+          "orbital_period": "body.orbital_period is required",
+          "spin_period": "body.spin_period is required",
+          "tilt": "body.tilt is required"
+        }
+      },
+      "properties": {
+        "name": {
+          "$id": "#/properties/body/properties/name",
+          "type": "string",
+          "errorMessage": {
+            "type": "body.name must be a string"
+          }
+        },
+        "description": {
+          "$id": "#/properties/body/properties/description",
+          "type": "string",
+          "errorMessage": {
+            "type": "body.description must be a string"
+          }
+        },
+        "region": {
+          "$id": "#/properties/body/properties/region",
+          "type": "string",
+          "pattern": "^(INNER|OUTTER)$",
+          "errorMessage": {
+            "pattern": "body.region must be INNER or OUTTER",
+            "type": "body.region must be a string"
+          }
+        },
+        "diameter": {
+          "$id": "#/properties/body/properties/diameter",
+          "type": "number",
+          "errorMessage": {
+            "type": "body.diameter must be a number"
+          }
+        },
+        "mass": {
+          "$id": "#/properties/body/properties/mass",
+          "type": "number",
+          "errorMessage": {
+            "type": "body.mass must be a number"
+          }
+        },
+        "orbital_radius": {
+          "$id": "#/properties/body/properties/orbital_radius",
+          "type": "number",
+          "errorMessage": {
+            "type": "body.orbital_radius must be a number"
+          }
+        },
+        "orbital_period": {
+          "$id": "#/properties/body/properties/orbital_period",
+          "type": "number",
+          "errorMessage": {
+            "type": "body.orbital_period must be a number"
+          }
+        },
+        "spin_period": {
+          "$id": "#/properties/body/properties/spin_period",
+          "type": "number",
+          "errorMessage": {
+            "type": "body.spin_period must be a number"
+          }
+        },
+        "tilt": {
+          "$id": "#/properties/body/properties/tilt",
+          "type": "number",
+          "errorMessage": {
+            "type": "body.tilt must be a number"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
